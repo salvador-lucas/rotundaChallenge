@@ -1,4 +1,4 @@
-import { Dog, Lion, Tiger } from './animals';
+import { Dog, Lion, Tiger } from './Animals';
 
 function AnimalsPhrases(): void {
   const dog = new Dog('jorge el dog');

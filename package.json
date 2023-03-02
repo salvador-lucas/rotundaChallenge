@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc **/*.ts",
+    "urlParser": "node ./urlParser/script.js",
+    "zooAnimals": "node ./zooAnimals/zooAnimals.js",
     "test": "jest"
   },
   "author": "",

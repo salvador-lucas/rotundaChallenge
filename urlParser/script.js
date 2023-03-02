@@ -1,0 +1,10 @@
+"use strict";
+exports.__esModule = true;
+var urlParser_1 = require("./urlParser");
+var urlFormat = '/:version/api/:collection/:id';
+var url = '/6/api/listings/3?sort=desc&limit=10';
+var urlWithoutQueryParams = '/6/api/listing/3';
+var res = (0, urlParser_1["default"])(urlFormat, url);
+var resWithoutQP = (0, urlParser_1["default"])(urlFormat, urlWithoutQueryParams);
+console.log('Parsed URL: ', res);
+console.log('Parsed URL without query params: ', resWithoutQP);

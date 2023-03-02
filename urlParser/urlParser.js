@@ -1,10 +1,6 @@
 "use strict";
 exports.__esModule = true;
 var types_1 = require("./types");
-// const urlFormat = '/:version/api/collection/:id';
-// const url = '/6/api/listing/3?sort=desc&limit=10';
-// const urlFormat = '/:collection';
-// const url = '/test';
 var urlParser = function (urlFormat, url) {
     var _a;
     if (!urlFormat || !url)
@@ -36,5 +32,4 @@ var urlParser = function (urlFormat, url) {
     }
     return urlInfo;
 };
-// urlParser(urlFormat, url);
 exports["default"] = urlParser;

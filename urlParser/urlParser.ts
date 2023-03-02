@@ -1,10 +1,5 @@
 import { ERRORS, SEPARATORS, urlParts } from './types';
 
-// const urlFormat = '/:version/api/collection/:id';
-// const url = '/6/api/listing/3?sort=desc&limit=10';
-// const urlFormat = '/:collection';
-// const url = '/test';
-
 const urlParser = (urlFormat: string, url: string): urlParts => {
   if(!urlFormat || !url) return {};
 
@@ -42,10 +37,7 @@ const urlParser = (urlFormat: string, url: string): urlParts => {
       urlInfo[key] = Number.isNaN(Number(val)) ? val : parseInt(val);
     }
   }
-
   return urlInfo;
 };
-
-// urlParser(urlFormat, url);
 
 export default urlParser;
