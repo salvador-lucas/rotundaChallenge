@@ -8,7 +8,8 @@
 ### First time run
 
 ```
-$ npm run test
+$ npm install
+$ npm run build 
 ```
 
 ### To run the tests
@@ -17,10 +18,8 @@ $ npm run test
 $ npm run test
 ```
 
-
 ### To run each exercise script
-
 ```
-$ npm run zooExercise
-$ npm run urlParseExercise
+$ npm run urlParser
+$ npm run zooAnimals
 ```
