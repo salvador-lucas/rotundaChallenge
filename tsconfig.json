@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    /** Basic Options **/
+    "allowJs": true,
+    "declaration": true,
+    // "lib": ["es2017", "es6"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "target": "es6",
+    "removeComments": true,
+
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strict": true,
+    "strictFunctionTypes": false,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "skipLibCheck": true,
+  }
+}
