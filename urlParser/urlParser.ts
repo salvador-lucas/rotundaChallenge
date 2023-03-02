@@ -1,7 +1,9 @@
-import { SEPARATORS, urlParts } from './types';
+import { ERRORS, SEPARATORS, urlParts } from './types';
 
-const urlFormat = '/:version/api/:collection/:id';
-const url = '/6/api/listings/3?sort=desc&limit=10';
+// const urlFormat = '/:version/api/collection/:id';
+// const url = '/6/api/listing/3?sort=desc&limit=10';
+// const urlFormat = '/:collection';
+// const url = '/test';
 
 const urlParser = (urlFormat: string, url: string): urlParts => {
   if(!urlFormat || !url) return {};
@@ -12,12 +14,17 @@ const urlParser = (urlFormat: string, url: string): urlParts => {
 
   const urlInfo: urlParts = {};
 
+  if(urlParams.length == 1 || paramsArray.length == 1)
+    throw new Error(ERRORS.INVALID_STRINGS);
+
   for(const i in paramsArray) {
     if(paramsArray[i].indexOf(':') != -1) {
       const paramName = paramsArray[i].replace(':', '');
       const value = Number.isNaN(Number(urlParams[i])) ? urlParams[i] : parseInt(urlParams[i]);
+
       if(!value)
-        continue;
+        throw new Error(ERRORS.INVALID_URLS);
+
       urlInfo[paramName] = value;
     }
   }
@@ -28,16 +35,17 @@ const urlParser = (urlFormat: string, url: string): urlParts => {
     for(const i in queryParamsArray) {
       const key = (queryParamsArray[i]).split(SEPARATORS.KEY_VAL)[0];
       const val = (queryParamsArray[i]).split(SEPARATORS.KEY_VAL)[1];
+
       if(!key || !val)
-        continue;
+        throw new Error(ERRORS.INVALID_QUERYPARAMS);
+
       urlInfo[key] = Number.isNaN(Number(val)) ? val : parseInt(val);
     }
   }
 
-  // console.log(urlInfo);
   return urlInfo;
 };
 
-urlParser(urlFormat, url);
+// urlParser(urlFormat, url);
 
 export default urlParser;
